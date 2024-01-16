@@ -1,6 +1,5 @@
 package com.example.FlightSearchAPI.Flights;
 
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +36,7 @@ public class FlightController {
             @PathVariable("flightId") Long flightId,
             @RequestParam(required = false) String departure,
             @RequestParam(required = false) String email){
-        flightservice.updateFlight(flightId,departure,email);
+            flightservice.updateFlight(flightId,departure,email);
     }
 
 

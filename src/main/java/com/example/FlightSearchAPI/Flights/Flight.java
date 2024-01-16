@@ -20,7 +20,6 @@ public class Flight {
     )
 
     private Long ID;
-
     private String email;
     private String departure;
     private String arrival;

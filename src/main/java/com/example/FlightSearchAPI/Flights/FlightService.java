@@ -24,19 +24,19 @@ public class FlightService {
     }
 
 
-    public void addNewFlight(Flight flight) throws IllegalAccessException {
+    public void addNewFlight(Flight flight){
         Optional<Flight> flightByEmail = flightRepository.findFlightByEmail(flight.getEmail());
         if(flightByEmail.isPresent()){
-            throw new IllegalAccessException("email taken");
+            throw new IllegalStateException("email taken");
         }
         flightRepository.save(flight);
 
     }
 
-    public void deleteFlight(Long flightid) throws IllegalAccessException {
+    public void deleteFlight(Long flightid){
         boolean exists = flightRepository.existsById(flightid);
         if(!exists){
-            throw new IllegalAccessException("flight with id " + flightid + " does not exists");
+            throw new IllegalStateException("flight with id " + flightid + " does not exists");
         }
         flightRepository.deleteById(flightid);
     }
