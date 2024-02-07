@@ -1,6 +1,7 @@
 package com.example.FlightSearchAPI.Flights;
 
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
 
@@ -25,6 +26,8 @@ public class Flight {
     private String arrival;
     private LocalDateTime departueDT;
     private LocalDateTime arrivalDT;
+
+    private LocalDateTime returntime;
     private double price;
 
     public Flight(String departure, String email, String arrival, LocalDateTime departueDT, LocalDateTime arrivalDT, double price) {
@@ -45,10 +48,27 @@ public class Flight {
         this.price = price;
     }
 
+    public Flight(String email, String departure, String arrival, LocalDateTime departueDT, LocalDateTime arrivalDT, LocalDateTime returntime, double price) {
+        this.email = email;
+        this.departure = departure;
+        this.arrival = arrival;
+        this.departueDT = departueDT;
+        this.arrivalDT = arrivalDT;
+        this.returntime = returntime;
+        this.price = price;
+    }
+
     public Flight() {
 
     }
 
+    public LocalDateTime getReturntime() {
+        return returntime;
+    }
+
+    public void setReturntime(LocalDateTime returntime) {
+        this.returntime = returntime;
+    }
 
     public Long getID() {
         return ID;
